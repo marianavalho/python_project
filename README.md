@@ -11,3 +11,6 @@ I decided to make the recipe book
 
 Instalações que fiz:
 pip install openpyxl
+
+Criei uma conta em https://spoonacular.com/ e criei uma API key
+
