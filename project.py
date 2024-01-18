@@ -1,4 +1,5 @@
 import pandas as pd
+import requests
 
 class Recipe:
     def __init__(self, title, ingredients, instructions, cooking_time, difficulty):
@@ -45,7 +46,6 @@ def load_recipes_from_excel(file_path):
 
     return recipes
 
-import requests
 
 def get_recipes_from_spoonacular(api_key, query, number=5):
     base_url = 'https://api.spoonacular.com/recipes/search'
@@ -63,8 +63,6 @@ def get_recipes_from_spoonacular(api_key, query, number=5):
     else:
         return None
 
-
-
 def main():
     print("Welcome to the Recipe App")
 
@@ -72,47 +70,56 @@ def main():
 
     recipe_app = RecipeApp()
 
-    # Ask the user to choose between Spoonacular and local recipes
+    # Ask the user to choose between searching in Excel or on Spoonacular
     print("Choose an option:")
-    print("1. Search for recipes using Spoonacular")
-    print("2. Search for recipes in your local app")
+    print("1. Search for recipes using the Excel file")
+    print("2. Search for recipes using Spoonacular")
 
     user_choice = input("Enter the option number (1 or 2): ")
 
     if user_choice == '1':
-        # Ask the user for the ingredient they want to search for on Spoonacular
-        user_input = input("Enter an ingredient to search for recipes on Spoonacular: ")
-        recipes = get_recipes_from_spoonacular(api_key, user_input)
-
-        if recipes:
-            print(f"\nRecipes for '{user_input}' from Spoonacular:")
-            for recipe in recipes:
-                print(f"- {recipe['title']}")
-        else:
-            print(f"\nNo recipes found for '{user_input}' on Spoonacular.")
-    elif user_choice == '2':
-        # Load recipes from Excel file
+        # Local app search code (existing code)
         file_path = 'C:\\Users\\maria\\OneDrive\\Área de Trabalho\\Introdução ao Python\\Recipes.xlsx'
         recipes_from_excel = load_recipes_from_excel(file_path)
 
-        # Add recipes to the app
         for recipe in recipes_from_excel:
             recipe_app.add_recipe(recipe)
 
-        # Search for recipes in the local app
-        keyword = input("Search for recipes in your app (enter keyword): ")
+        # Search for recipes
+        keyword = input("Search for recipes (enter keyword): ")
         results = recipe_app.search_recipes(keyword)
 
         if results:
-            print("\nSearch Results in your app:")
-            for result in results:
-                result.display_recipe()
+            print("\nSearch Results:")
+            for idx, result in enumerate(results, 1):
+                print(f"{idx}. {result.title}")
+
+            # Ask the user to select a recipe
+            selected_index = int(input("Enter the number of the recipe to view details: "))
+            if 1 <= selected_index <= len(results):
+                selected_recipe = results[selected_index - 1]
+
+                # Display the details for the selected recipe
+                selected_recipe.display_recipe()
+            else:
+                print("Invalid selection.")
         else:
-            print("\nNo recipes found in your app.")
+            print("\nNo recipes found.")
+
+    elif user_choice == '2':
+        # Spoonacular search code
+        keyword = input("Enter an ingredient to search for recipes: ")
+        recipes = get_recipes_from_spoonacular(api_key, keyword)
+
+        if recipes:
+            print(f"\nRecipes for '{keyword}' from Spoonacular:")
+            for idx, recipe in enumerate(recipes, 1):
+                print(f"{idx}. {recipe['title']}")
+
+        else:
+            print(f"\nNo recipes found for '{keyword}' on Spoonacular.")
     else:
         print("Invalid option. Please choose either 1 or 2.")
 
 if __name__ == "__main__":
     main()
-
-# HII
