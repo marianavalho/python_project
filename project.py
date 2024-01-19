@@ -106,7 +106,7 @@ def get_recipes_from_spoonacular(api_key, query, number=5):
 def main():
     print("Welcome to the Recipe App")
 
-    api_key = '2aa24e7071244a338a29c011ec282199'
+    api_key = '231f1e24b7524afbb129b9d40a5acd08'
 
     # Define file_path outside of the if blocks
     file_path = 'C:\\Users\\maria\\OneDrive\\Área de Trabalho\\Introdução ao Python\\Recipes.xlsx'
@@ -115,7 +115,7 @@ def main():
 
     # Ask the user to choose between searching in Excel, adding a recipe, or searching on Spoonacular
     print("Choose an option:")
-    print("1. Search for recipes using the Excel file")
+    print("1. Search for your recipes")
     print("2. Add a new recipe")
     print("3. Search for recipes using Spoonacular")
 
