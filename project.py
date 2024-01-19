@@ -155,7 +155,7 @@ def main():
         ingredients = input("Enter the ingredients (comma-separated): ").split(', ')
         instructions = input("Enter the instructions: ")
         cooking_time = input("Enter the cooking time (in minutes): ")
-        difficulty = input("Enter the difficulty level: ")
+        difficulty = input("Enter the difficulty level (0-5): ")
 
         new_recipe = Recipe(title, ingredients, instructions, cooking_time, difficulty)
         recipe_app.add_recipe(new_recipe)
