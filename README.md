@@ -1,6 +1,6 @@
 # recipe_app
 
-"As suas recitas na palma da mão"
+"As suas receitas na palma da mão"
 
 A recipe_app tem como obejetivo manter um registo de todas as suas receitas (incluindo a receita do molho secreto da avó). 
 Intuitivamente apenas tem que selecionar uma das três opções disponíveis.
