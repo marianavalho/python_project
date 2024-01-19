@@ -106,9 +106,8 @@ def get_recipes_from_spoonacular(api_key, query, number=5):
 def main():
     print("Welcome to the Recipe App")
 
-    api_key = '231f1e24b7524afbb129b9d40a5acd08'
+    api_key = 'cd73c8c7ed7b4b68858b59d394336523'
 
-    # Define file_path outside of the if blocks
     file_path = 'C:\\Users\\maria\\OneDrive\\Área de Trabalho\\Introdução ao Python\\Recipes.xlsx'
 
     recipe_app = RecipeApp()
@@ -122,7 +121,6 @@ def main():
     user_choice = input("Enter the option number (1, 2, or 3): ")
 
     if user_choice == '1':
-        # Existing code for searching in Excel
         recipes_from_excel = load_recipes_from_excel(file_path)
 
         for recipe in recipes_from_excel:
@@ -166,7 +164,6 @@ def main():
         recipe_app.save_to_excel(file_path)
 
     elif user_choice == '3':
-        # Spoonacular search code
         keyword = input("Enter an ingredient to search for recipes: ")
         recipes = get_recipes_from_spoonacular(api_key, keyword)
 

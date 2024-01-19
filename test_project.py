@@ -76,7 +76,7 @@ def test_get_recipes_from_spoonacular(mock_get, sample_spoonacular_data):
     mock_get.return_value.status_code = 200
     mock_get.return_value.json.return_value = sample_spoonacular_data
 
-    api_key = '231f1e24b7524afbb129b9d40a5acd08' 
+    api_key = 'cd73c8c7ed7b4b68858b59d394336523' 
     query = 'pasta'
     number = 3
     recipes = get_recipes_from_spoonacular(api_key, query, number)
