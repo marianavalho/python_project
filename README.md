@@ -22,8 +22,11 @@ O ficheiro project.py consiste em duas classes: Recipe, que pretende representar
 Foi necessário criar uma conta no site https://spoonacular.com/ e criar uma API key, gerada aleatóriamente.
 
 
+
+
 Notas adicionais:
 -
 N1- Á medida que ia fazendo várias tentativas, aconteceu-me a API key ter expirado e necessitar de fazer outra, a atual é "cd73c8c7ed7b4b68858b59d394336523" e foi criada no dia da entrega. 
 N2- O código tem que ser alterado e substituir o seguinte caminho: "C:\\Users\\maria\\OneDrive\\Área de Trabalho\\Introdução ao Python\\Recipes.xlsx".
 Deve ser alterado pelo "path" no qual está guardado o ficheiro excel no computador do utilizador.
+N3- O intuito do excel será o utilizador colocar as suas própias receitas, para efeitos de testagem, este já contém algumas sendo que a opção "1. Search for your recipes" só funcionará para os nomes da receitas que já lá estão.
